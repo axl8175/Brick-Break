@@ -24,11 +24,11 @@ export default class Brick extends React.Component {
   }
 
   computeWidth() {
-    return 0;
+    return this.imageWidth*this.computeFactor();
   }
 
   computeHeight() {
-    return 0;
+    return this.imageHeight*this.computeFactor();
   }
 
   computeX() {
