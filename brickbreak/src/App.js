@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import data from "./things.json"
+import Card from "./card.js"
 
 function App() {
   return (
@@ -10,6 +12,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+        <Card title={data.things[0].title} />
         <a
           className="App-link"
           href="https://reactjs.org"
