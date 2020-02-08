@@ -11,8 +11,8 @@ export default class Card extends React.Component {
     render() {
       return <div>
       <Brickimage link={this.props.imagelink}/>
-      <div>Hello, {this.props.title}</div>
-
+      <h1>{this.props.title}</h1>
+      <p>{this.props.text}</p>
       </div>;
     }
   }
