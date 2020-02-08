@@ -4,7 +4,14 @@ import './App.css';
 import data from "./things.json"
 import Card from "./card.js"
 
-let artesano = data.things[1];
+const allcards = data.things.map(
+  (places) => {
+    return <Card 
+    title={places.title}
+    imagelink={places.imagelink}
+    text={places.text}/>
+  }
+);
 function App() {
   return (
     <div className="App">
@@ -13,11 +20,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <Card
-          title={artesano.title}
-          imagelink={artesano.imagelink}
-          text={artesano.text}
-        />
+        {allcards}
         <a
           className="App-link"
           href="https://reactjs.org"
