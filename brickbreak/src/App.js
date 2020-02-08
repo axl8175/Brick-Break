@@ -12,7 +12,10 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <Card title={data.things[0].title} />
+        <Card
+          title={data.things[1].title}
+          imagelink={data.things[1].imagelink}
+        />
         <a
           className="App-link"
           href="https://reactjs.org"
