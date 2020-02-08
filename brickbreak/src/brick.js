@@ -18,7 +18,7 @@ export default class Brick extends React.Component {
   }
 
   computeFactor() {
-    return 1;
+    return 1/2**(this.state.u);
   }
 
   computeWidth() {
