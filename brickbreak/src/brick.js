@@ -12,8 +12,8 @@ export default class Brick extends React.Component {
         b: 0,
       },
       u: 0,
-      x: 0,
-      y: 0,
+      sx: 0,
+      sy: 0,
       imageWidth: this.props.imageWidth,
       imageHeight: this.props.imageHeight,
     };
@@ -31,12 +31,12 @@ export default class Brick extends React.Component {
     return 0;
   }
 
-  computeX() {
-    return 0;
+  computeX(parentX, sx) {
+    return parentX + this.computeFactor() * sx ;
   }
 
-  computeY() {
-    return 0;
+  computeY(parentY, sy) {
+    return parentY + this.computeFactor() * sy ;
   }
 
   render() {
