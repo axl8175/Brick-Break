@@ -6,7 +6,7 @@ import Card from "./card.js"
 
 const allcards = data.things.map(
   (place) => {
-    return <Card 
+    return <Card
     title={place.title}
     imagelink={place.imagelink}
     text={place.text}/>
@@ -16,19 +16,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
         {allcards}
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
     </div>
   );
