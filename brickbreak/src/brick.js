@@ -11,9 +11,11 @@ export default class Brick extends React.Component {
         g: 0,
         b: 0,
       },
-        u: 0,
-        x: 0,
-        y: 0,
+      u: 0,
+      x: 0,
+      y: 0,
+      imageWidth: this.props.imageWidth,
+      imageHeight: this.props.imageHeight,
     };
   }
 
