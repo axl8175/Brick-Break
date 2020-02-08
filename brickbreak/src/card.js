@@ -1,4 +1,5 @@
 import React from 'react';
+import Brickimage from './brickimage';
 
 export default class Card extends React.Component {
     props: {
@@ -9,9 +10,9 @@ export default class Card extends React.Component {
     };
     render() {
       return <div>
-      <img src={this.props.imagelink}/>
+      <Brickimage link={this.props.imagelink}/>
       <div>Hello, {this.props.title}</div>
-      
+
       </div>;
     }
   }
