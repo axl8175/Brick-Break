@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import data from "./things.json";
 import Card from "./card.js";
