@@ -5,11 +5,11 @@ import data from "./things.json"
 import Card from "./card.js"
 
 const allcards = data.things.map(
-  (places) => {
+  (place) => {
     return <Card 
-    title={places.title}
-    imagelink={places.imagelink}
-    text={places.text}/>
+    title={place.title}
+    imagelink={place.imagelink}
+    text={place.text}/>
   }
 );
 function App() {
