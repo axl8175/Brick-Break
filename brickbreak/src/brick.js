@@ -17,6 +17,25 @@ export default class Brick extends React.Component {
     };
   }
 
+  computeFactor() {
+    return 1;
+  }
+
+  computeWidth() {
+    return 0;
+  }
+
+  computeHeight() {
+    return 0;
+  }
+
+  computeX() {
+    return 0;
+  }
+
+  computeY() {
+    return 0;
+  }
 
   render() {
     return (
