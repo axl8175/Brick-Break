@@ -10,6 +10,8 @@ export default class Card extends React.Component {
     render() {
       return <div>
       <img src={this.props.imagelink}/>
-      Hello, {this.props.title}</div>;
+      <div>Hello, {this.props.title}</div>
+      
+      </div>;
     }
   }

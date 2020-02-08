@@ -4,6 +4,7 @@ import './App.css';
 import data from "./things.json"
 import Card from "./card.js"
 
+let artesano = data.things[1];
 function App() {
   return (
     <div className="App">
@@ -13,8 +14,9 @@ function App() {
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <Card
-          title={data.things[1].title}
-          imagelink={data.things[1].imagelink}
+          title={artesano.title}
+          imagelink={artesano.imagelink}
+          text={artesano.text}
         />
         <a
           className="App-link"
