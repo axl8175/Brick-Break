@@ -15,7 +15,7 @@ export default class Brick extends React.Component {
     let {r,g,b} = this.props.color
     return (
       <div
-       onClick={this.props.onClick}
+       onMouseMove={this.props.onClick}
        style={{
         position: 'absolute',
         left: `${this.props.x}px`,
@@ -23,7 +23,7 @@ export default class Brick extends React.Component {
         backgroundColor: `rgb(${r},${g},${b})`,
         width: `${this.props.width}px`,
         height: `${this.props.height}px`,
-        border: '3px solid white',
+        border: `${0.01*this.props.width}px solid white`,
         boxSizing: 'border-box',
         }}
       >

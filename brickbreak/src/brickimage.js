@@ -1,5 +1,6 @@
 import React from 'react';
 import Brick from './brick';
+import _ from 'lodash';
 
 export default class Brickimage extends React.Component {
   constructor(props) {
@@ -34,6 +35,29 @@ export default class Brickimage extends React.Component {
       bricks,
       averageColor: null,
     };
+
+    this.updateBricks = _.throttle(function updateBricks(brickKey){
+
+      console.log(this.state.bricks);
+      let updatedBricks = {...this.state.bricks};
+      let brick = updatedBricks[brickKey];
+      let newBricks = this.subdivideBrick(brick);
+
+      delete updatedBricks[brickKey];
+
+      for (let i = 0; i < newBricks.length; i++) {
+        let brick = newBricks[i]
+        let brickKey = this.keyOfBrick(brick);
+
+        updatedBricks[brickKey] = brick;
+      }
+      console.log(updatedBricks);
+      // update state with new bricks
+      this.setState({
+        ...this.state,
+        bricks: updatedBricks
+      })
+    }, 200);
   }
 
   componentDidMount() {
@@ -118,28 +142,6 @@ export default class Brickimage extends React.Component {
     return newBricks;
   }
 
-  updateBricks(brickKey){
-
-    console.log(this.state.bricks);
-    let updatedBricks = {...this.state.bricks};
-    let brick = updatedBricks[brickKey];
-    let newBricks = this.subdivideBrick(brick);
-
-    delete updatedBricks[brickKey];
-
-    for (let i = 0; i < newBricks.length; i++) {
-      let brick = newBricks[i]
-      let brickKey = this.keyOfBrick(brick);
-
-      updatedBricks[brickKey] = brick;
-    }
-    console.log(updatedBricks);
-    // update state with new bricks
-    this.setState({
-      ...this.state,
-      bricks: updatedBricks
-    })
-  }
 
   computeFactor(u) {
     return 1/2**(u);
