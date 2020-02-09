@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9a2ec070b2a4d0177794985d4ceb05d1",
+    "revision": "1deea7b3d350363f605adc546c2a4c1d",
     "url": "/Brick-Break/index.html"
   },
   {
-    "revision": "0acce747fe869808e93e",
-    "url": "/Brick-Break/static/css/main.d1b05096.chunk.css"
+    "revision": "0428fc3ee3154af051a6",
+    "url": "/Brick-Break/static/css/main.8ab6f918.chunk.css"
   },
   {
-    "revision": "7aed4852eabb7ba1addc",
-    "url": "/Brick-Break/static/js/2.b6797d83.chunk.js"
+    "revision": "5a20777abd540acfaad1",
+    "url": "/Brick-Break/static/js/2.e6628713.chunk.js"
   },
   {
     "revision": "98061d712500f07672e3581cfdcd5a24",
-    "url": "/Brick-Break/static/js/2.b6797d83.chunk.js.LICENSE.txt"
+    "url": "/Brick-Break/static/js/2.e6628713.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "0acce747fe869808e93e",
-    "url": "/Brick-Break/static/js/main.0e35755f.chunk.js"
+    "revision": "0428fc3ee3154af051a6",
+    "url": "/Brick-Break/static/js/main.f14b9b5e.chunk.js"
   },
   {
     "revision": "f1725ae526886f9fe7b1",
