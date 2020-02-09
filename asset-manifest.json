@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Brick-Break/static/css/main.8ab6f918.chunk.css",
-    "main.js": "/Brick-Break/static/js/main.dde03be8.chunk.js",
-    "main.js.map": "/Brick-Break/static/js/main.dde03be8.chunk.js.map",
+    "main.js": "/Brick-Break/static/js/main.144a9d3b.chunk.js",
+    "main.js.map": "/Brick-Break/static/js/main.144a9d3b.chunk.js.map",
     "runtime-main.js": "/Brick-Break/static/js/runtime-main.73397dbb.js",
     "runtime-main.js.map": "/Brick-Break/static/js/runtime-main.73397dbb.js.map",
     "static/js/2.e6628713.chunk.js": "/Brick-Break/static/js/2.e6628713.chunk.js",
     "static/js/2.e6628713.chunk.js.map": "/Brick-Break/static/js/2.e6628713.chunk.js.map",
     "index.html": "/Brick-Break/index.html",
-    "precache-manifest.2b1ca1852030a7e0907640a99ffdc418.js": "/Brick-Break/precache-manifest.2b1ca1852030a7e0907640a99ffdc418.js",
+    "precache-manifest.fee3087ed616e2bff176bf60284ace50.js": "/Brick-Break/precache-manifest.fee3087ed616e2bff176bf60284ace50.js",
     "service-worker.js": "/Brick-Break/service-worker.js",
     "static/css/main.8ab6f918.chunk.css.map": "/Brick-Break/static/css/main.8ab6f918.chunk.css.map",
     "static/js/2.e6628713.chunk.js.LICENSE.txt": "/Brick-Break/static/js/2.e6628713.chunk.js.LICENSE.txt",
@@ -21,6 +21,6 @@
     "static/js/runtime-main.73397dbb.js",
     "static/js/2.e6628713.chunk.js",
     "static/css/main.8ab6f918.chunk.css",
-    "static/js/main.dde03be8.chunk.js"
+    "static/js/main.144a9d3b.chunk.js"
   ]
 }

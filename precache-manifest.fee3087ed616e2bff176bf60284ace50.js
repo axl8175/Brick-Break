@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1ee7f8c9f8a220901537542b10854b24",
+    "revision": "23ed78e41e5f7e0edf9e9fa7872c77ba",
     "url": "/Brick-Break/index.html"
   },
   {
-    "revision": "06a04538f2419494957f",
+    "revision": "d03dc8c5079b4b62c1c7",
     "url": "/Brick-Break/static/css/main.8ab6f918.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Brick-Break/static/js/2.e6628713.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "06a04538f2419494957f",
-    "url": "/Brick-Break/static/js/main.dde03be8.chunk.js"
+    "revision": "d03dc8c5079b4b62c1c7",
+    "url": "/Brick-Break/static/js/main.144a9d3b.chunk.js"
   },
   {
     "revision": "f1725ae526886f9fe7b1",
