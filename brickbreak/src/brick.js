@@ -19,6 +19,12 @@ export default class Brick extends React.Component {
         boxSizing: 'border-box',
         }}
       >
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Concrete_wall.jpg/220px-Concrete_wall.jpg"
+        width={this.props.width}
+        height={this.props.height}
+        style={{opacity: "0.1"}}
+        />
       </div>
     );
   }
