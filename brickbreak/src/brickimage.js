@@ -9,6 +9,10 @@ export default class Brickimage extends React.Component {
     let brickList = [
       {
         u: 0,
+        x: 0,
+        y: 0,
+        width: 800,
+        height: 400,
         sx: 0,
         sy: 0,
         parentX: 0,
@@ -16,8 +20,8 @@ export default class Brickimage extends React.Component {
         color: {
          r: 180, g: 70, b: 10,
         },
-        parentHeight:400,
-        parentWidth:800,
+        // parentWidth: 1600,
+        // parentHeight: 800,
       },
       // { u: 1, sx: -1, sy: 1, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, },
       // { u: 1, sx: 3, sy: 1, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, },
@@ -90,71 +94,42 @@ export default class Brickimage extends React.Component {
       // make bottom left
       // make bottom
       // make bottom right
-      let parentX = this.computeX(brick.parentWidth, brick.parentX,brick.sx);
-      let parentY = this.computeY(brick.parentHeight, brick.parentY,brick.sy);
-      let parentWidth = brick.parentWidth/2;
-      let parentHeight = brick.parentHeight/2;
-    // let  = this.getAverageColor(0, 0, 800, 400);
-    let tl = {
-      u:bricku,
-      sx: 0,
-      sy: 0,
-      parentX,
-      parentY,
-      color: {
-        r: 180, g: 70, b: 10,
-      },
-      parentWidth,
-      parentHeight,
-    }
-    let tr = {
-      u:bricku,
-      sx: 2,
-      sy: 0,
-      parentX,
-      parentY,
-      color: {
-        r: 180, g: 70, b: 10,
-      },
-      parentWidth,
-      parentHeight,
-    }
-    let bl = {
-      u:bricku,
-      sx: -1,
-      sy: 1,
-      parentX,
-      parentY,
-      color: {
-        r: 180, g: 70, b: 10,
-      },
-      parentWidth,
-      parentHeight,
-    }
-    let b = {
-      u:bricku,
-      sx: 1,
-      sy: 1,
-      parentX,
-      parentY,
-      color: {
-        r: 180, g: 70, b: 10,
-      },
-      parentWidth,
-      parentHeight,
+      let parentX = this.computeX(brick.width, brick.parentX,brick.sx);
+      let parentY = this.computeY(brick.height, brick.parentY,brick.sy);
+      // let parentWidth = brick.parentWidth/2;
+      // let parentHeight = brick.parentHeight/2;
+
+    let width = this.computeWidth(bricku);
+    let height = this.computeHeight(bricku);
+
+    let make = (sx, sy) => {
+      let x = this.computeX(width, parentX, sx);
+      let y = this.computeY(height, parentY, sy);
+      let color = this.getAverageColor(x, y, x+width, y+width);
+      return {
+        u:bricku,
+        x,
+        y,
+        width,
+        height,
+        sx,
+        sy,
+        parentX,
+        parentY,
+        color: color || brick.color,
+        // : {
+        //   r: 180, g: 70, b: 10,
+        // },
+        // parentWidth,
+        // parentHeight,
+      };
     };
-    let br = {
-      u:bricku,
-      sx: 3,
-      sy: 1,
-      parentX,
-      parentY,
-      color: {
-        r: 180, g: 70, b: 10,
-      },
-      parentWidth,
-      parentHeight,
-    }
+    // console.log(`x:${brick.x},w:${brick.width}`);
+    let tl = make(0, 0);
+    let tr = make(2, 0);
+    let bl = make(-1, 1);
+    let b = make(1, 1);
+    let br = make(3, 1);
 
     let newBricks = [tl, tr,bl,b,br];
 
@@ -174,12 +149,12 @@ export default class Brickimage extends React.Component {
     return this.imageHeight*this.computeFactor(u);
   }
 
-  computeX(parentWidth, parentX, sx) {
-    return (parentX + parentWidth * sx / 2) ;
+  computeX(width, parentX, sx) {
+    return (parentX + width * sx / 2) ;
   }
 
-  computeY(parentHeight, parentY, sy) {
-    return (parentY + parentHeight * sy) ;
+  computeY(height, parentY, sy) {
+    return (parentY + height * sy ) ;
   }
 
   getAverageColor(x, y, w, h) {
@@ -190,6 +165,19 @@ export default class Brickimage extends React.Component {
     canvas.height = 400;
     let context = canvas.getContext('2d');
     context.drawImage(imgEl, 0, 0, 800, 400);
+
+    if (x < 0) {
+      x = 0;
+    }
+    if (x + w > 800) {
+      w = 800 - x;
+    }
+    if (y + h > 400) {
+      h = 400 - y;
+    }
+    if (w === 0 || h === 0) {
+      return null;
+    }
 
     let imageData= context.getImageData(x, y, w, h).data;
 
@@ -215,10 +203,10 @@ export default class Brickimage extends React.Component {
     let update = () => this.updateBricks(this.keyOfBrick(brick))
     return <Brick
       key={this.keyOfBrick(brick)}
-      x={this.computeX(brick.parentWidth, brick.parentX, brick.sx)}
-      y={this.computeY(brick.parentHeight, brick.parentY, brick.sy)}
-      width={this.computeWidth(brick.u)}
-      height={this.computeHeight(brick.u)}
+      x={brick.x}
+      y={brick.y}
+      width={brick.width}
+      height={brick.height}
       color={brick.color}
       onClick={update}
     />
