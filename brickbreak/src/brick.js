@@ -15,6 +15,7 @@ export default class Brick extends React.Component {
         backgroundColor: `rgb(${r},${g},${b})`,
         width: `${this.props.width}px`,
         height: `${this.props.height}px`,
+        border: `${0.01*this.props.width}px solid gray`,
         boxSizing: 'border-box',
         }}
       >
