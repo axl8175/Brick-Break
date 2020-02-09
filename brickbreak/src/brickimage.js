@@ -6,9 +6,19 @@ export default class Brickimage extends React.Component {
   constructor(props) {
     super(props);
 
-    // Temporarily starting with split, evetually will start with 1 large brick
     let brickList = [
-      { u: 0, sx: 0, sy: 0, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, parentHeight:400, parentWidth:800 }
+      {
+        u: 0,
+        sx: 0,
+        sy: 0,
+        parentX: 0,
+        parentY: 0,
+        color: {
+         r: 180, g: 70, b: 10,
+        },
+        parentHeight:400,
+        parentWidth:800,
+      },
       // { u: 1, sx: -1, sy: 1, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, },
       // { u: 1, sx: 3, sy: 1, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, },
       // { u: 1, sx: 0, sy: 0, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, },
@@ -38,7 +48,6 @@ export default class Brickimage extends React.Component {
 
     this.updateBricks = _.throttle(function updateBricks(brickKey){
 
-      console.log(this.state.bricks);
       let updatedBricks = {...this.state.bricks};
       let brick = updatedBricks[brickKey];
       let newBricks = this.subdivideBrick(brick);
@@ -51,7 +60,6 @@ export default class Brickimage extends React.Component {
 
         updatedBricks[brickKey] = brick;
       }
-      console.log(updatedBricks);
       // update state with new bricks
       this.setState({
         ...this.state,
@@ -86,13 +94,16 @@ export default class Brickimage extends React.Component {
       let parentY = this.computeY(brick.parentHeight, brick.parentY,brick.sy);
       let parentWidth = brick.parentWidth/2;
       let parentHeight = brick.parentHeight/2;
+    // let  = this.getAverageColor(0, 0, 800, 400);
     let tl = {
       u:bricku,
       sx: 0,
       sy: 0,
       parentX,
       parentY,
-      r: 180, g: 70, b: 10,
+      color: {
+        r: 180, g: 70, b: 10,
+      },
       parentWidth,
       parentHeight,
     }
@@ -102,7 +113,9 @@ export default class Brickimage extends React.Component {
       sy: 0,
       parentX,
       parentY,
-      r: 180, g: 70, b: 10,
+      color: {
+        r: 180, g: 70, b: 10,
+      },
       parentWidth,
       parentHeight,
     }
@@ -112,7 +125,9 @@ export default class Brickimage extends React.Component {
       sy: 1,
       parentX,
       parentY,
-      r: 180, g: 70, b: 10,
+      color: {
+        r: 180, g: 70, b: 10,
+      },
       parentWidth,
       parentHeight,
     }
@@ -122,7 +137,9 @@ export default class Brickimage extends React.Component {
       sy: 1,
       parentX,
       parentY,
-      r: 180, g: 70, b: 10,
+      color: {
+        r: 180, g: 70, b: 10,
+      },
       parentWidth,
       parentHeight,
     };
@@ -132,7 +149,9 @@ export default class Brickimage extends React.Component {
       sy: 1,
       parentX,
       parentY,
-      r: 180, g: 70, b: 10,
+      color: {
+        r: 180, g: 70, b: 10,
+      },
       parentWidth,
       parentHeight,
     }
@@ -193,7 +212,6 @@ export default class Brickimage extends React.Component {
   }
 
   renderBrick(brick) {
-    let onClick = () => console.log("click");
     let update = () => this.updateBricks(this.keyOfBrick(brick))
     return <Brick
       key={this.keyOfBrick(brick)}
@@ -201,7 +219,7 @@ export default class Brickimage extends React.Component {
       y={this.computeY(brick.parentHeight, brick.parentY, brick.sy)}
       width={this.computeWidth(brick.u)}
       height={this.computeHeight(brick.u)}
-      color={{r: brick.r, g: brick.g, b: brick.b}}
+      color={brick.color}
       onClick={update}
     />
   }

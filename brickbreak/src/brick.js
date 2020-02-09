@@ -5,9 +5,6 @@ export default class Brick extends React.Component {
   constructor(props) {
     super(props);
 
-    console.log(this.props.x);
-    console.log(this.props.y);
-
   }
 
 
