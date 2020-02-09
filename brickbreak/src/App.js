@@ -15,6 +15,7 @@ export default class App extends React.Component {
     };
 
     this.renderCurrent = this.renderCurrent.bind(this);
+    this.toNext = this.toNext.bind(this);
   }
 
   renderCurrent() {
@@ -31,7 +32,15 @@ export default class App extends React.Component {
   }
 
   toNext() {
+    let rand = Math.floor(Math.random() * this.state.total);
+    if(rand == this.state.current){
+      rand = (rand + 1) % this.state.total;
+    }
 
+    this.setState({
+      ...this.state,
+      current: rand
+    })
   }
 
   render() {
