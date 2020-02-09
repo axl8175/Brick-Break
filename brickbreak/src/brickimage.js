@@ -19,12 +19,15 @@ export default class Brickimage extends React.Component {
     this.imageHeight = 400;
 
     brickList.forEach(b => {
-      bricks[this.keyOfBrick(b)] = b;
+      let key = this.keyOfBrick(b);
+      // console.log(key);
+      bricks[key] = b;
     });
 
     this.imageRef = React.createRef();
     this.getAverageColor = this.getAverageColor.bind(this);
     this.renderBrick = this.renderBrick.bind(this);
+    this.setAverageColor = this.setAverageColor.bind(this);
 
     this.state = {
       bricks,
@@ -33,8 +36,10 @@ export default class Brickimage extends React.Component {
   }
 
   componentDidMount() {
+  }
+
+  setAverageColor() {
     let avg = this.getAverageColor(0, 0, 800, 400);
-    console.log(avg);
     this.setState({
       ...this.state,
       averageColor: avg,
@@ -158,6 +163,7 @@ export default class Brickimage extends React.Component {
       }}>
         <img src={this.props.link} alt="brick"
           ref={this.imageRef}
+          onLoad={this.setAverageColor}
           style={{ height: "100%", width: "100%" }}
         />
         {Object.values(this.state.bricks).map(this.renderBrick)}
