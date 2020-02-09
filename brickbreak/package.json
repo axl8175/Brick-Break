@@ -1,5 +1,6 @@
 {
   "name": "brickbreak",
+  "homepage": "https://axl8175.github.io/Brick-Break",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
