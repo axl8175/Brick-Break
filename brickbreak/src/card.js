@@ -22,7 +22,7 @@ export default class Card extends React.Component {
       <p>{this.props.text}</p>
       </div>
     } else {
-      div = <p>{"Please try again."}</p>
+      div = <p>{"Please submit an answer until correct."}</p>
     }
     return div
   }
