@@ -5,20 +5,23 @@ export default class Brickimage extends React.Component {
   constructor(props) {
     super(props);
 
-    let bl = { u: 1, sx: -1, sy: 1, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, };
-    let br = { u: 1, sx: 3, sy: 1, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, };
-    let tl = { u: 1, sx: 0, sy: 0, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, };
-    let bm = { u: 1, sx: 1, sy: 1, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, };
-    let tr = { u: 1, sx: 2, sy: 0, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, };
+    // Temporarily starting with split, evetually will start with 1 large brick
+    let brickList = [
+      { u: 1, sx: -1, sy: 1, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, },
+      { u: 1, sx: 3, sy: 1, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, },
+      { u: 1, sx: 0, sy: 0, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, },
+      { u: 1, sx: 1, sy: 1, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, },
+      { u: 1, sx: 2, sy: 0, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, },
+    ];
+    let bricks = {};
+
+    brickList.forEach(b => {
+      bricks[this.keyOfBrick(b)] = b;
+    });
+
     this.state = {
-      bricks: {
-        [this.keyOfBrick(bl)]: bl,
-        [this.keyOfBrick(bm)]: bm,
-        [this.keyOfBrick(br)]: br,
-        [this.keyOfBrick(tl)]: tl,
-        [this.keyOfBrick(tr)]: tr,
-      }
-    }
+      bricks,
+    };
   }
 
   keyOfBrick(brick) {
@@ -51,7 +54,9 @@ export default class Brickimage extends React.Component {
     // make bottom left
     // make bottom
     // make bottom right
-    this.state.bricks.push(...newBricks);
+    newBricks.map(b => {
+      this.state.bricks[this.keyOfBrick(b)] = b;
+    });
   }
 
   render() {
