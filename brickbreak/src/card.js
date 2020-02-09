@@ -61,7 +61,6 @@ export default class Card extends React.Component {
         <input type="submit" value="Submit" />
     </form>
 
-    {this.state.answered.toString()}
     {this.submissionCheck()}
 
     </div>;
