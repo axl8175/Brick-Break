@@ -42,7 +42,7 @@ export default class Brickimage extends React.Component {
       ...this.state,
       imageData,
     });
-    console.log(this.state.imageData);
+    console.log(imageData);
   }
 
   keyOfBrick(brick) {

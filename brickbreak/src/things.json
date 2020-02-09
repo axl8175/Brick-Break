@@ -1,0 +1,19 @@
+{
+  "things":[
+    {
+      "title": "Gracies",
+      "text": "All-you-care-to-eat cafeteria that is peanut and tree nut free with stone fired pizza, plant based fare, pasta bake, carving station and more.",
+      "imagelink": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/IKB_191.jpg/330px-IKB_191.jpg"
+    },
+    {
+      "title": "Artesano",
+      "text": "Patisserie serving upscale delicacies, gluten-free, vegan baked goods and Peet’s Coffee blended frozen and espresso drinks",
+      "imagelink": "https://www.rit.edu/fa/diningservices/sites/rit.edu.fa.diningservices/files/styles/large/public/artesanobakerycafe_0.jpg"
+    },
+    {
+      "title": "Beanz",
+      "text": "Serving Finger Lakes Coffee beverages and seasonal specialty drinks, Ultimate Smoothie Blendz smoothies, baked goods, soups, salads and sandwiches ",
+      "imagelink": "https://www.rit.edu/fa/diningservices/sites/rit.edu.fa.diningservices/files/styles/large/public/Beanz_0.jpg"
+    }
+  ]
+}
