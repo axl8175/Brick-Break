@@ -7,11 +7,12 @@ export default class Brickimage extends React.Component {
 
     // Temporarily starting with split, evetually will start with 1 large brick
     let brickList = [
-      { u: 1, sx: -1, sy: 1, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, },
-      { u: 1, sx: 3, sy: 1, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, },
-      { u: 1, sx: 0, sy: 0, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, },
-      { u: 1, sx: 1, sy: 1, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, },
-      { u: 1, sx: 2, sy: 0, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, },
+      { u: 0, sx: 0, sy: 0, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, parentHeight:400, parentWidth:800 }
+      // { u: 1, sx: -1, sy: 1, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, },
+      // { u: 1, sx: 3, sy: 1, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, },
+      // { u: 1, sx: 0, sy: 0, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, },
+      // { u: 1, sx: 1, sy: 1, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, },
+      // { u: 1, sx: 2, sy: 0, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, },
     ];
     let bricks = {};
 
@@ -42,31 +43,80 @@ export default class Brickimage extends React.Component {
   }
 
   subdivideBrick(brick) {
-    let newBricks = [];
     let bricku = brick.u + 1;
+    if(bricku >= 7){
+      return [brick];
+    }
       // TODO:
       // make top left
       // make top right
       // make bottom left
       // make bottom
       // make bottom right
-    let B = {
+      let parentX = this.computeX(brick.parentWidth, brick.parentX,brick.sx);
+      let parentY = this.computeY(brick.parentHeight, brick.parentY,brick.sy);
+      let parentWidth = brick.parentWidth/2;
+      let parentHeight = brick.parentHeight/2;
+    let tl = {
+      u:bricku,
+      sx: 0,
+      sy: 0,
+      parentX,
+      parentY,
+      r: 180, g: 70, b: 10,
+      parentWidth,
+      parentHeight,
+    }
+    let tr = {
+      u:bricku,
+      sx: 2,
+      sy: 0,
+      parentX,
+      parentY,
+      r: 180, g: 70, b: 10,
+      parentWidth,
+      parentHeight,
+    }
+    let bl = {
+      u:bricku,
+      sx: -1,
+      sy: 1,
+      parentX,
+      parentY,
+      r: 180, g: 70, b: 10,
+      parentWidth,
+      parentHeight,
+    }
+    let b = {
       u:bricku,
       sx: 1,
       sy: 1,
-      parentX: this.computeX(brick.parentX, 1),
-      parentY: this.computeY(brick.parentY, 1),
+      parentX,
+      parentY,
       r: 180, g: 70, b: 10,
+      parentWidth,
+      parentHeight,
     };
+    let br = {
+      u:bricku,
+      sx: 3,
+      sy: 1,
+      parentX,
+      parentY,
+      r: 180, g: 70, b: 10,
+      parentWidth,
+      parentHeight,
+    }
 
+    let newBricks = [tl, tr,bl,b,br];
 
     return newBricks;
   }
 
   updateBricks(brickKey){
-    // TODO:
-    // remove brick
-    let updatedBricks = this.state.bricks;
+
+    console.log(this.state.bricks);
+    let updatedBricks = {...this.state.bricks};
     let brick = updatedBricks[brickKey];
     let newBricks = this.subdivideBrick(brick);
 
@@ -78,7 +128,7 @@ export default class Brickimage extends React.Component {
 
       updatedBricks[brickKey] = brick;
     }
-
+    console.log(updatedBricks);
     // update state with new bricks
     this.setState({
       ...this.state,
@@ -98,12 +148,12 @@ export default class Brickimage extends React.Component {
     return this.imageHeight*this.computeFactor(u);
   }
 
-  computeX(parentX, sx) {
-    return (parentX + this.imageWidth * sx / 4) ;
+  computeX(parentWidth, parentX, sx) {
+    return (parentX + parentWidth * sx / 2) ;
   }
 
-  computeY(parentY, sy) {
-    return (parentY + this.imageHeight * sy / 2) ;
+  computeY(parentHeight, parentY, sy) {
+    return (parentY + parentHeight * sy) ;
   }
 
   getAverageColor(x, y, w, h) {
@@ -136,13 +186,16 @@ export default class Brickimage extends React.Component {
   }
 
   renderBrick(brick) {
+    let onClick = () => console.log("click");
+    let update = () => this.updateBricks(this.keyOfBrick(brick))
     return <Brick
-      key={`${brick.u},${brick.sx},${brick.sy}`}
-      x={this.computeX(brick.parentX, brick.sx)}
-      y={this.computeY(brick.parentY, brick.sy)}
+      key={this.keyOfBrick(brick)}
+      x={this.computeX(brick.parentWidth, brick.parentX, brick.sx)}
+      y={this.computeY(brick.parentHeight, brick.parentY, brick.sy)}
       width={this.computeWidth(brick.u)}
       height={this.computeHeight(brick.u)}
       color={{r: brick.r, g: brick.g, b: brick.b}}
+      onClick={update}
     />
   }
 
