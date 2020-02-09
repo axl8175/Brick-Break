@@ -44,7 +44,9 @@ export default class Card extends React.Component {
 
   render() {
     return <div>
-   <Brickimage link={this.props.imagelink}/>
+   <Brickimage link={this.props.imagelink}
+    answered={this.state.answered}
+   />
 
    <form onSubmit={this.handleSubmit}>
       <label>
@@ -56,7 +58,7 @@ export default class Card extends React.Component {
 
     {this.state.answered.toString()}
     {this.submissionCheck()}
-    
+
     </div>;
   }
 }

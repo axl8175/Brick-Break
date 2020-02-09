@@ -69,7 +69,7 @@ export default class Brickimage extends React.Component {
         ...this.state,
         bricks: updatedBricks
       })
-    }, 200);
+    }, 20);
   }
 
   componentDidMount() {
@@ -85,19 +85,11 @@ export default class Brickimage extends React.Component {
 
   subdivideBrick(brick) {
     let bricku = brick.u + 1;
-    if(bricku >= 7){
-      return [brick];
+    if (brick.height < 20 || bricku >= 7) {
+      return [];
     }
-      // TODO:
-      // make top left
-      // make top right
-      // make bottom left
-      // make bottom
-      // make bottom right
-      let parentX = this.computeX(brick.width, brick.parentX,brick.sx);
-      let parentY = this.computeY(brick.height, brick.parentY,brick.sy);
-      // let parentWidth = brick.parentWidth/2;
-      // let parentHeight = brick.parentHeight/2;
+    let parentX = this.computeX(brick.width, brick.parentX,brick.sx);
+    let parentY = this.computeY(brick.height, brick.parentY,brick.sy);
 
     let width = this.computeWidth(bricku);
     let height = this.computeHeight(bricku);
@@ -106,6 +98,7 @@ export default class Brickimage extends React.Component {
       let x = this.computeX(width, parentX, sx);
       let y = this.computeY(height, parentY, sy);
       let color = this.getAverageColor(x, y, x+width, y+width);
+      if (!color) return null;
       return {
         u:bricku,
         x,
@@ -116,12 +109,7 @@ export default class Brickimage extends React.Component {
         sy,
         parentX,
         parentY,
-        color: color || brick.color,
-        // : {
-        //   r: 180, g: 70, b: 10,
-        // },
-        // parentWidth,
-        // parentHeight,
+        color,
       };
     };
     // console.log(`x:${brick.x},w:${brick.width}`);
@@ -131,7 +119,7 @@ export default class Brickimage extends React.Component {
     let b = make(1, 1);
     let br = make(3, 1);
 
-    let newBricks = [tl, tr,bl,b,br];
+    let newBricks = _.compact([tl,tr,bl,b,br]);
 
     return newBricks;
   }
@@ -215,6 +203,9 @@ export default class Brickimage extends React.Component {
 
 
   render() {
+    let bricks = (this.props.answered)
+      ? []
+      : Object.values(this.state.bricks).map(this.renderBrick);
     return <div style={{
         position: "relative",
         width: "800px",
@@ -227,7 +218,7 @@ export default class Brickimage extends React.Component {
           onLoad={this.setAverageColor}
           style={{ height: "100%", width: "100%" }}
         />
-        {Object.values(this.state.bricks).map(this.renderBrick)}
+        {bricks}
       </div>;
   }
 }
