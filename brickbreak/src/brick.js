@@ -7,9 +7,9 @@ export default class Brick extends React.Component {
 
     this.state = {
       color: {
-        r: 0,
-        g: 0,
-        b: 0,
+        r: this.props.r,
+        g: this.props.g,
+        b: this.props.b,
       },
       u: this.props.u,
     };
@@ -36,17 +36,17 @@ export default class Brick extends React.Component {
   }
 
   render() {
+    let {r,g,b} = this.state.color;
     return (
       <div style={{
         position: 'absolute',
         left: '0',
         top: '0',
-        color: 'black',
+        backgroundColor: `rgb(${r},${g},${b})`,
         width: '30px',
         height: '30px',
         }}
       >
-        x
       </div>
     );
   }

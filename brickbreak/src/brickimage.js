@@ -21,6 +21,9 @@ export default class Brickimage extends React.Component {
           u={0}
           sx={0}
           sy={0}
+          r={0}
+          g={0}
+          b={200}
           imageWidth={800}
           imageHeight={400}
         />
