@@ -30,15 +30,20 @@ export default class Card extends React.Component {
   handleChange(event) {
     this.setState({
       ...this.state,
-      answer: event.target.answer
+      answer: event.target.value
     });
   }
 
   handleSubmit(event) {
     event.preventDefault();
+    let right = (
+      this.state.answer.toLowerCase()
+      ===
+      this.props.title.toLowerCase()
+    );
     this.setState({
       ...this.state,
-      answered: !this.state.answered,
+      answered: right,
     });
   }
 
@@ -51,7 +56,7 @@ export default class Card extends React.Component {
    <form onSubmit={this.handleSubmit}>
       <label>
           Name:
-          <input type="text" answer={this.state.answer} onChange={this.handleChange} />
+          <input type="text" onChange={this.handleChange} />
         </label>
         <input type="submit" value="Submit" />
     </form>
