@@ -20,14 +20,24 @@ export default class Brickimage extends React.Component {
     });
 
     this.imageRef = React.createRef();
+    this.getAverageColor = this.getAverageColor.bind(this);
 
     this.state = {
       bricks,
-      imageData: null,
+      averageColor: null,
     };
   }
 
   componentDidMount() {
+    let avg = this.getAverageColor(0, 0, 800, 400);
+    console.log(avg);
+    this.setState({
+      ...this.state,
+      averageColor: avg,
+    });
+  }
+
+  getAverageColor(x, y, w, h) {
     // Temporarily create a canvas to extract image data
     let canvas = document.createElement('canvas');
     let imgEl = this.imageRef.current;
@@ -36,14 +46,10 @@ export default class Brickimage extends React.Component {
     let context = canvas.getContext('2d');
     context.drawImage(imgEl, 0, 0, 800, 400);
 
-    let imageData= context.getImageData(0, 0, 800, 400).data;
+    let imageData= context.getImageData(x, y, w, h).data;
 
-    this.setState({
-      ...this.state,
-      imageData,
-    });
     const average = {r:0, b:0, g:0};
-    for (var i = 0; i < imageData.length; i += 4) {
+    for (let i = 0; i < imageData.length; i += 4) {
       average.r += imageData[i];
       average.g += imageData[i+1];
       average.b += imageData[i+2];
@@ -52,6 +58,8 @@ export default class Brickimage extends React.Component {
     average.r = Math.floor(average.r / dividend);
     average.g = Math.floor(average.g / dividend);
     average.b = Math.floor(average.b / dividend);
+
+    return average;
   }
 
   keyOfBrick(brick) {
