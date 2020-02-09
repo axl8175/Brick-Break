@@ -24,6 +24,7 @@ export default class Brickimage extends React.Component {
 
     this.imageRef = React.createRef();
     this.getAverageColor = this.getAverageColor.bind(this);
+    this.renderBrick = this.renderBrick.bind(this);
 
     this.state = {
       bricks,
@@ -49,7 +50,14 @@ export default class Brickimage extends React.Component {
       // make bottom left
       // make bottom
       // make bottom right
-    let B = [bricku, computeWidth(bricku), computeHeight(bricku), ];
+    let B = {
+      u:bricku,
+      sx: 1,
+      sy: 1,
+      parentX: this.computeX(brick.parentX, 1),
+      parentY: this.computeY(brick.parentY, 1),
+      r: 180, g: 70, b: 10,
+    };
 
 
     return newBricks;
@@ -130,16 +138,11 @@ export default class Brickimage extends React.Component {
   renderBrick(brick) {
     return <Brick
       key={`${brick.u},${brick.sx},${brick.sy}`}
-      u={brick.u}
-      sx={brick.sx}
-      sy={brick.sy}
-      parentX={brick.parentX}
-      parentY={brick.parentY}
-      r={brick.r}
-      g={brick.g}
-      b={brick.b}
-      imageWidth={800}
-      imageHeight={400}
+      x={this.computeX(brick.parentX, brick.sx)}
+      y={this.computeY(brick.parentY, brick.sy)}
+      width={this.computeWidth(brick.u)}
+      height={this.computeHeight(brick.u)}
+      color={{r: brick.r, g: brick.g, b: brick.b}}
     />
   }
 

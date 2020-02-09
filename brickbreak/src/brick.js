@@ -5,27 +5,19 @@ export default class Brick extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      color: {
-        r: this.props.r,
-        g: this.props.g,
-        b: this.props.b,
-      },
-      u: this.props.u,
-    };
   }
 
 
   render() {
-    let {r,g,b} = this.state.color;
+    let {r,g,b} = this.props.color
     return (
       <div style={{
         position: 'absolute',
-        left: `${this.computeX()}px`,
-        top: `${this.computeY()}px`,
+        left: `${this.props.x}px`,
+        top: `${this.props.y}px`,
         backgroundColor: `rgb(${r},${g},${b})`,
-        width: `${this.computeWidth()}px`,
-        height: `${this.computeHeight()}px`,
+        width: `${this.props.width}px`,
+        height: `${this.props.height}px`,
         border: '3px solid white',
         boxSizing: 'border-box',
         }}
