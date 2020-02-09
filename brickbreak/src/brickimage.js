@@ -97,7 +97,7 @@ export default class Brickimage extends React.Component {
     let make = (sx, sy) => {
       let x = this.computeX(width, parentX, sx);
       let y = this.computeY(height, parentY, sy);
-      let color = this.getAverageColor(x, y, x+width, y+width);
+      let color = this.getAverageColor(x, y, width, height);
       if (!color) return null;
       return {
         u:bricku,
