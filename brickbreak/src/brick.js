@@ -8,6 +8,7 @@ export default class Brick extends React.Component {
     return (
       <div
        onMouseMove={this.props.onClick}
+       onTouchMove={this.props.onClick}
        style={{
         position: 'absolute',
         left: `${this.props.x}px`,
@@ -20,6 +21,7 @@ export default class Brick extends React.Component {
         }}
       >
       <img
+        alt="brick"
         src={brickpic}
         width={this.props.width}
         height={this.props.height}
