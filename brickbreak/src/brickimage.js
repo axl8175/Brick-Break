@@ -31,6 +31,20 @@ export default class Brickimage extends React.Component {
     />
   }
 
+  subdivideBrick(brick) {
+    // TODO:
+    // remove brick
+
+    let newBricks = [];
+    // TODO:
+    // make top left
+    // make top right
+    // make bottom left
+    // make bottom
+    // make bottom right
+    this.state.bricks.push(...newBricks);
+  }
+
   render() {
     return <div style={{
         position: "relative",
