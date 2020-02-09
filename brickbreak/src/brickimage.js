@@ -5,15 +5,24 @@ export default class Brickimage extends React.Component {
   constructor(props) {
     super(props);
 
+    let bl = { u: 1, sx: -1, sy: 1, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, };
+    let br = { u: 1, sx: 3, sy: 1, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, };
+    let tl = { u: 1, sx: 0, sy: 0, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, };
+    let bm = { u: 1, sx: 1, sy: 1, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, };
+    let tr = { u: 1, sx: 2, sy: 0, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, };
     this.state = {
-      bricks: [
-        { u: 1, sx: -1, sy: 1, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, },
-        { u: 1, sx: 3, sy: 1, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, },
-        { u: 1, sx: 0, sy: 0, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, },
-        { u: 1, sx: 1, sy: 1, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, },
-        { u: 1, sx: 2, sy: 0, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, },
-      ]
+      bricks: {
+        [this.keyOfBrick(bl)]: bl,
+        [this.keyOfBrick(bm)]: bm,
+        [this.keyOfBrick(br)]: br,
+        [this.keyOfBrick(tl)]: tl,
+        [this.keyOfBrick(tr)]: tr,
+      }
     }
+  }
+
+  keyOfBrick(brick) {
+    return [brick.u, brick.sx, brick.sy, brick.parentX, brick.parentY].toString();
   }
 
   renderBrick(brick) {
@@ -56,7 +65,7 @@ export default class Brickimage extends React.Component {
         <img src={this.props.link} alt="brick"
           style={{ height: "100%", width: "100%" }}
         />
-        {this.state.bricks.map(this.renderBrick)}
+        {Object.values(this.state.bricks).map(this.renderBrick)}
       </div>;
   }
 }
