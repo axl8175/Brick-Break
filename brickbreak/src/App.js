@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import data from "./things.json";
+import data from "./things.js";
 import Card from "./card.js";
 
 const allcards = data.things.map(
@@ -8,7 +8,7 @@ const allcards = data.things.map(
     return <Card
     key={place.title}
     title={place.title}
-    imagelink={place.imagelink}
+    imagelink={place.locallink}
     text={place.text}/>
   }
 );

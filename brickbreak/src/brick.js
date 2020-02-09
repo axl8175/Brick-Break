@@ -47,6 +47,7 @@ export default class Brick extends React.Component {
         height: `${this.computeHeight()}px`,
         border: '3px solid white',
         boxSizing: 'border-box',
+        display: 'none'
         }}
       >
       </div>

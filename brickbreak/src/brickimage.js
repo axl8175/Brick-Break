@@ -19,9 +19,30 @@ export default class Brickimage extends React.Component {
       bricks[this.keyOfBrick(b)] = b;
     });
 
+    this.imageRef = React.createRef();
+
     this.state = {
       bricks,
+      imageData: null,
     };
+  }
+
+  componentDidMount() {
+    // Temporarily create a canvas to extract image data
+    let canvas = document.createElement('canvas');
+    let imgEl = this.imageRef.current;
+    canvas.width = 800;
+    canvas.height = 400;
+    let context = canvas.getContext('2d');
+    context.drawImage(imgEl, 0, 0, 800, 400);
+
+    let imageData= context.getImageData(0, 0, 800, 400);
+
+    this.setState({
+      ...this.state,
+      imageData,
+    });
+    console.log(this.state.imageData);
   }
 
   keyOfBrick(brick) {
@@ -30,6 +51,7 @@ export default class Brickimage extends React.Component {
 
   renderBrick(brick) {
     return <Brick
+      key={`${brick.u},${brick.sx},${brick.sy}`}
       u={brick.u}
       sx={brick.sx}
       sy={brick.sy}
@@ -47,16 +69,14 @@ export default class Brickimage extends React.Component {
     // TODO:
     // remove brick
 
-    let newBricks = [];
     // TODO:
     // make top left
     // make top right
     // make bottom left
     // make bottom
     // make bottom right
-    newBricks.map(b => {
-      this.state.bricks[this.keyOfBrick(b)] = b;
-    });
+
+    // update state with new bricks
   }
 
   render() {
@@ -68,6 +88,7 @@ export default class Brickimage extends React.Component {
         overflow: "hidden",
       }}>
         <img src={this.props.link} alt="brick"
+          ref={this.imageRef}
           style={{ height: "100%", width: "100%" }}
         />
         {Object.values(this.state.bricks).map(this.renderBrick)}
