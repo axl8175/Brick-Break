@@ -33,7 +33,7 @@ export default class App extends React.Component {
 
   toNext() {
     let rand = Math.floor(Math.random() * this.state.total);
-    if(rand == this.state.current){
+    if(rand === this.state.current){
       rand = (rand + 1) % this.state.total;
     }
 
