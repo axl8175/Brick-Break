@@ -18,9 +18,11 @@ export default class Brickimage extends React.Component {
           style={{ height: "100%", width: "100%" }}
         />
         <Brick
-          u={0}
-          sx={0}
-          sy={0}
+          u={1}
+          sx={1}
+          sy={1}
+          parentX={0}
+          parentY={0}
           r={0}
           g={0}
           b={200}
