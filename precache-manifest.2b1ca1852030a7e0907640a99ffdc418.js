@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "499e323eb4a8df7ea0e9de64cbb1149a",
+    "revision": "1ee7f8c9f8a220901537542b10854b24",
     "url": "/Brick-Break/index.html"
   },
   {
-    "revision": "ec515fa0485c753315db",
+    "revision": "06a04538f2419494957f",
     "url": "/Brick-Break/static/css/main.8ab6f918.chunk.css"
   },
   {
-    "revision": "3cc23eb1e15e3a6d2353",
-    "url": "/Brick-Break/static/js/2.e1553b31.chunk.js"
+    "revision": "5a20777abd540acfaad1",
+    "url": "/Brick-Break/static/js/2.e6628713.chunk.js"
   },
   {
     "revision": "98061d712500f07672e3581cfdcd5a24",
-    "url": "/Brick-Break/static/js/2.e1553b31.chunk.js.LICENSE.txt"
+    "url": "/Brick-Break/static/js/2.e6628713.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "ec515fa0485c753315db",
-    "url": "/Brick-Break/static/js/main.024212e3.chunk.js"
+    "revision": "06a04538f2419494957f",
+    "url": "/Brick-Break/static/js/main.dde03be8.chunk.js"
   },
   {
     "revision": "f1725ae526886f9fe7b1",
@@ -26,6 +26,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "3d97af79cac9d2ebb5e5fb68bac99630",
     "url": "/Brick-Break/static/media/Beanz_0.3d97af79.jpg"
+  },
+  {
+    "revision": "53ac2d21808993b750d8098032b3af7f",
+    "url": "/Brick-Break/static/media/Java.53ac2d21.png"
   },
   {
     "revision": "fb1ee0437fc478fd7ba4cad7f4e4919c",
