@@ -55,7 +55,7 @@ export default class Card extends React.Component {
 
    <form onSubmit={this.handleSubmit}>
       <label>
-          Name:
+          Guess:
           <input type="text" onChange={this.handleChange} />
         </label>
         <input type="submit" value="Submit" />
