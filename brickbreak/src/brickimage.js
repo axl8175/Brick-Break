@@ -42,13 +42,14 @@ export default class Brickimage extends React.Component {
 
   subdivideBrick(brick) {
     let newBricks = [];
+    let bricku = brick.u + 1;
       // TODO:
       // make top left
       // make top right
       // make bottom left
       // make bottom
       // make bottom right
-      
+    let B = [bricku, computeWidth(bricku), computeHeight(bricku), ];
 
 
     return newBricks;
@@ -59,13 +60,13 @@ export default class Brickimage extends React.Component {
     // remove brick
     let updatedBricks = this.state.bricks;
     let brick = updatedBricks[brickKey];
-    let newBricks = subdivideBrick(brick);
+    let newBricks = this.subdivideBrick(brick);
 
     delete updatedBricks[brickKey];
 
     for (let i = 0; i < newBricks.length; i++) {
       let brick = newBricks[i]
-      let brickKey = keyOfBrick(brick);
+      let brickKey = this.keyOfBrick(brick);
 
       updatedBricks[brickKey] = brick;
     }
