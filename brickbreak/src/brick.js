@@ -24,11 +24,11 @@ export default class Brick extends React.Component {
   }
 
   computeWidth() {
-    return this.imageWidth*this.computeFactor();
+    return this.state.imageWidth*this.computeFactor();
   }
 
   computeHeight() {
-    return this.imageHeight*this.computeFactor();
+    return this.state.imageHeight*this.computeFactor();
   }
 
   computeX(parentX, sx) {
@@ -43,9 +43,15 @@ export default class Brick extends React.Component {
     return (
       <div style={{
         position: 'absolute',
-
+        left: '0',
+        top: '0',
+        color: 'black',
+        width: '30px',
+        height: '30px',
         }}
-        />
+      >
+        x
+      </div>
     );
   }
 }

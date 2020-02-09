@@ -6,6 +6,7 @@ import Card from "./card.js";
 const allcards = data.things.map(
   (place) => {
     return <Card
+    key={place.title}
     title={place.title}
     imagelink={place.imagelink}
     text={place.text}/>
