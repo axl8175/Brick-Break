@@ -1,4 +1,4 @@
-
+import brickpic from './bricktexture2.png';
 import React from 'react';
 
 export default class Brick extends React.Component {
@@ -20,10 +20,10 @@ export default class Brick extends React.Component {
         }}
       >
       <img
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Concrete_wall.jpg/220px-Concrete_wall.jpg"
+        src={brickpic}
         width={this.props.width}
         height={this.props.height}
-        style={{opacity: "0.1"}}
+        style={{opacity: "0.3"}}
         />
       </div>
     );

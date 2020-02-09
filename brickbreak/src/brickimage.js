@@ -7,27 +7,25 @@ export default class Brickimage extends React.Component {
     super(props);
 
     let brickList = [
-      {
-        u: 0,
-        x: 0,
-        y: 0,
-        width: 800,
-        height: 400,
-        sx: 0,
-        sy: 0,
-        parentX: 0,
-        parentY: 0,
-        color: {
-         r: 180, g: 70, b: 10,
-        },
-        // parentWidth: 1600,
-        // parentHeight: 800,
-      },
-      // { u: 1, sx: -1, sy: 1, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, },
-      // { u: 1, sx: 3, sy: 1, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, },
-      // { u: 1, sx: 0, sy: 0, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, },
-      // { u: 1, sx: 1, sy: 1, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, },
-      // { u: 1, sx: 2, sy: 0, parentX: 0, parentY: 0, r: 180, g: 70, b: 10, },
+      // {
+        // u: 0,
+        // x: 0,
+        // y: 0,
+        // width: 800,
+        // height: 400,
+        // sx: 0,
+        // sy: 0,
+        // parentX: 0,
+        // parentY: 0,
+        // color: {
+        //  r: 180, g: 70, b: 10,
+        // },
+      // },
+      { u: 1, x: -200, y: 200, width: 400, height: 200, sx: -1, sy: 1, parentX: 0, parentY: 0, color: {r: 180, g: 70, b: 10,} },
+      { u: 1, x: 400, y: 200, width: 400, height: 200, sx: 3, sy: 1, parentX: 0, parentY: 0, color: {r: 180, g: 70, b: 10,} },
+      { u: 1, x: 0, y: 0, width: 400, height: 200, sx: 0, sy: 0, parentX: 0, parentY: 0, color: {r: 180, g: 70, b: 10,} },
+      { u: 1, x: 200, y: 200, width: 400, height: 200, sx: 1, sy: 1, parentX: 0, parentY: 0, color: {r: 180, g: 70, b: 10,} },
+      { u: 1, x: 400, y: 0, width: 400, height: 200, sx: 2, sy: 0, parentX: 0, parentY: 0, color: {r: 180, g: 70, b: 10,} },
     ];
     let bricks = {};
 
