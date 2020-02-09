@@ -15,6 +15,9 @@ export default class Brickimage extends React.Component {
     ];
     let bricks = {};
 
+    this.imageWidth = 800;
+    this.imageHeight = 400;
+
     brickList.forEach(b => {
       bricks[this.keyOfBrick(b)] = b;
     });
@@ -35,6 +38,63 @@ export default class Brickimage extends React.Component {
       ...this.state,
       averageColor: avg,
     });
+  }
+
+  subdivideBrick(brick) {
+    let newBricks = [];
+      // TODO:
+      // make top left
+      // make top right
+      // make bottom left
+      // make bottom
+      // make bottom right
+      
+
+
+    return newBricks;
+  }
+
+  updateBricks(brickKey){
+    // TODO:
+    // remove brick
+    let updatedBricks = this.state.bricks;
+    let brick = updatedBricks[brickKey];
+    let newBricks = subdivideBrick(brick);
+
+    delete updatedBricks[brickKey];
+
+    for (let i = 0; i < newBricks.length; i++) {
+      let brick = newBricks[i]
+      let brickKey = keyOfBrick(brick);
+
+      updatedBricks[brickKey] = brick;
+    }
+
+    // update state with new bricks
+    this.setState({
+      ...this.state,
+      bricks: updatedBricks
+    })
+  }
+
+  computeFactor(u) {
+    return 1/2**(u);
+  }
+
+  computeWidth(u) {
+    return this.imageWidth*this.computeFactor(u);
+  }
+
+  computeHeight(u) {
+    return this.imageHeight*this.computeFactor(u);
+  }
+
+  computeX(parentX, sx) {
+    return (parentX + this.imageWidth * sx / 4) ;
+  }
+
+  computeY(parentY, sy) {
+    return (parentY + this.imageHeight * sy / 2) ;
   }
 
   getAverageColor(x, y, w, h) {
@@ -82,19 +142,7 @@ export default class Brickimage extends React.Component {
     />
   }
 
-  subdivideBrick(brick) {
-    // TODO:
-    // remove brick
 
-    // TODO:
-    // make top left
-    // make top right
-    // make bottom left
-    // make bottom
-    // make bottom right
-
-    // update state with new bricks
-  }
 
   render() {
     return <div style={{

@@ -15,25 +15,6 @@ export default class Brick extends React.Component {
     };
   }
 
-  computeFactor() {
-    return 1/2**(this.state.u);
-  }
-
-  computeWidth() {
-    return this.props.imageWidth*this.computeFactor();
-  }
-
-  computeHeight() {
-    return this.props.imageHeight*this.computeFactor();
-  }
-
-  computeX() {
-    return (this.props.parentX + this.props.imageWidth * this.props.sx / 4) ;
-  }
-
-  computeY() {
-    return (this.props.parentY + this.props.imageHeight * this.props.sy / 2) ;
-  }
 
   render() {
     let {r,g,b} = this.state.color;
